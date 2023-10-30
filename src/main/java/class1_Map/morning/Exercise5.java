@@ -8,7 +8,7 @@ public class Exercise5 {
         Map<String, Integer> wordCountMap = new HashMap<>();
         String text = "java sdkfjhs java aws dfj aws";
         for(String word: text.split(" ")) {
-            int count = wordCountMap.get(word) == null ? 1 : wordCountMap.get(word) + 1;
+            int count = wordCountMap.getOrDefault( word,0) + 1;
             wordCountMap.put(word, count);
         }
 
