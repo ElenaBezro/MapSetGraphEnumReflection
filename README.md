@@ -63,3 +63,56 @@ Create two HashSet instances named setA and setB to represent sets of integers.
 Add several integers to both setA and setB.
 Implement set operations to perform union, intersection, and difference between setA and setB.
 Print the results of each set operation to demonstrate how to combine or extract elements from sets.
+
+
+Evening session
+
+Mini project
+
+Project Title: Employee Management and Reporting System Project
+
+Description: On the first day, we'll start with the Employee
+Management System, emphasizing Java Map and Set to store and
+manage employee data, while incorporating OOP and Collections.
+
+Tasks:
+Exercise 1
+
+Create an Employee class with attributes like name, ID, department,
+job title, and manager ID. Apply encapsulation and use getter and
+setter methods.
+
+Exercise 2
+
+Implement a HashSet to store unique employees. Utilize proper data
+structures and ensure efficient searching.
+
+Exercise 3
+
+Implement a HashMap to store employees with their IDs as keys.
+Encapsulate access to the map and provide methods for CRUD operations.
+
+Exercise 4
+
+Implement methods to add, remove, and search for employees by ID, using
+OOP principles to structure the code.
+
+Exercise 5
+
+Implement methods to filter and display employees by department, job title,
+or manager, taking advantage of Java Collections for filtering.
+
+Exercise 6
+
+Implement methods to update employee information while maintaining data
+integrity.
+
+Exercise 7
+
+Implement basic reporting functionality to display employee statistics (e.g.,
+total employees, employees per department) using Java Map and Set.
+
+Exercise 8
+
+Add error handling with custom exceptions for scenarios like duplicate
+employee IDs or invalid inputs.
