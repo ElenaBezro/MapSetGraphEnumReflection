@@ -7,6 +7,7 @@ public class Util {
         Employee employee2 = new Employee("Joyce",102, "Logistic", "Engineering Manager", 102 );
         Employee employee3 = new Employee("Peter",103, "Warehouse Management", "BackEnd Developer", 110 );
         Employee employee4 = new Employee("Mila",104, "Planning", "FrontEnd Developer", 102 );
+
         try {
             managerSystem.addEmployee(employee1);
             managerSystem.addEmployee(employee2);
@@ -16,7 +17,6 @@ public class Util {
         catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
 
         return managerSystem;
     }
