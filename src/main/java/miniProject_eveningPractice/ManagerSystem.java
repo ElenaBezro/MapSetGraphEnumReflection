@@ -1,0 +1,105 @@
+package miniProject_eveningPractice;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
+
+public class ManagerSystem {
+
+    private List<Employee> employeeList = new ArrayList<>();
+    private Map<Integer, Employee> employeeByIdMap = new HashMap<>();
+
+    public void addEmployee(Employee newEmployee) throws EmployeeIdAlreadyExistsException {
+        for (Employee employee : employeeList) {
+            if (employee.getId() == newEmployee.getId()) {
+                throw new EmployeeIdAlreadyExistsException("Employee With Such Id Already Exists");
+            }
+        }
+        employeeList.add(newEmployee);
+        employeeByIdMap.put(newEmployee.getId(), newEmployee);
+    }
+
+    public void removeEmployee(int id) {
+        employeeList = employeeList.stream().filter(employee -> employee.getId() != id).toList();
+        employeeByIdMap.remove(id);
+    }
+
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public HashSet<Employee> getEmployeeSet() {
+        return new HashSet<>(employeeList);
+    }
+
+    public Map<Integer, Employee> getEmployeeByIdMap() {
+        return employeeList.stream()
+                .collect(Collectors
+                        .toMap(employee -> employee.getId(), employee -> employee));
+    }
+
+    public Employee getEmployeeById(int id) throws InvalidIdException {
+        for (Employee employee : employeeList) {
+            if (employee.getId() == id) {
+                return employee;
+            } else {
+                throw new InvalidIdException("Invalid id");
+            }
+        }
+        return null;
+    }
+
+    public void displayEmployeesByDepartment(String department) throws InvalidInputException {
+        List<Employee> list = employeeList.stream()
+                .filter(employee -> employee.getDepartment().equals(department))
+                .toList();
+
+        if (list.isEmpty()) {
+            throw new InvalidInputException("Invalid input");
+        }
+
+        list.forEach(System.out::println);
+    }
+
+    public void displayEmployeesByJobTitle(String jobTitle) throws InvalidInputException {
+        List<Employee> list = employeeList.stream()
+                .filter(employee -> employee.getJobTitle().equals(jobTitle))
+                .toList();
+
+        if (list.isEmpty()) {
+            throw new InvalidInputException("Invalid input");
+        }
+
+        list.forEach(System.out::println);
+    }
+
+    public void displayEmployeesByManager(int managerId) throws InvalidIdException {
+        List<Employee> list = employeeList.stream()
+                .filter(employee -> employee.getManagerId() == managerId)
+                .toList();
+
+        if (list.isEmpty()) {
+            throw new InvalidIdException("Invalid id");
+        }
+
+        list.forEach(System.out::println);
+    }
+
+    public void displayReport() {
+        //TODO: What if one employee is performing two jobs?
+        System.out.println("Total employees: " + employeeList.size());
+
+        Map<String, List<Employee>> employeesToDepartmentMap = employeeList.stream()
+                .collect(groupingBy(employee -> employee.getDepartment()));
+
+        employeeList.stream()
+                .collect(groupingBy(employee -> employee.getDepartment()))
+                .entrySet()
+                .forEach(entry -> {
+                    System.out.println("Department: " + entry.getKey());
+                    System.out.println("Employee in department " + entry.getKey() + ": " + entry.getValue());
+
+                });
+    }
+}
