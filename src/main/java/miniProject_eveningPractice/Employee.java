@@ -1,11 +1,15 @@
 package miniProject_eveningPractice;
 
-public class Employee {
+import java.util.Date;
+
+public class Employee implements Comparable<Employee> {
     String name;
     int id;
     String department;
     String jobTitle;
     int managerId;
+    Date hireDate;
+    Double salary;
 
     public Employee(String name, int id, String department, String jobTitle, int managerId) {
         this.name = name;
@@ -13,6 +17,16 @@ public class Employee {
         this.department = department;
         this.jobTitle = jobTitle;
         this.managerId = managerId;
+    }
+
+    public Employee(String name, int id, String department, String jobTitle, int managerId, Date hireDate, Double salary) {
+        this.name = name;
+        this.id = id;
+        this.department = department;
+        this.jobTitle = jobTitle;
+        this.managerId = managerId;
+        this.hireDate = hireDate;
+        this.salary = salary;
     }
 
     public String getName() {
@@ -63,5 +77,10 @@ public class Employee {
                     ", jobTitle=" + jobTitle +
                     ", managerId=" + managerId +
                     '}';
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return Integer.compare(this.getId(), o.getManagerId());
     }
 }
