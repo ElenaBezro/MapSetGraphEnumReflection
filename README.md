@@ -54,3 +54,60 @@ Get the Constructor object for the Car class and create an instance of Car using
 Set the values of the private fields make, model, and year using reflection.
 Invoke the public methods to get the values of these fields and print them.
 Ensure you handle exceptions properly when working with reflection
+
+
+Evening 
+
+Mini project
+
+Java Enums and Reflection Integration
+
+Project Description: On the third day, we'll integrate Java Enums and
+Reflection into the Employee Management and Reporting System to
+allow dynamic generation of reports, while incorporating OOP and
+Collections.
+Tasks:
+
+Exercise 1
+
+Create an Enum to define different report types (e.g., employee,
+department, hierarchy), encapsulating report types as objects.
+
+Exercise 2
+
+Implement a class ReportGenerator that uses Reflection to dynamically generate
+reports based on the selected report type, leveraging OOP design
+patterns.
+
+Exercise 3
+
+Allow the user to choose a report type (using the Enum) and
+generate the corresponding report, encapsulating report
+generation logic.
+
+Break 10 minutes
+
+Exercise 7
+
+Add unit tests to ensure the correctness of the reporting
+functionality, following best practices for testing and encapsulating
+test cases.
+
+
+Exercise 4
+
+Demonstrate how to use Enums and Reflection to access and
+manipulate class properties for report generation while adhering to
+OOP principles.
+
+Exercise 5
+
+Further enhance the reporting functionality to support multiple
+report types, including the previously implemented statistics and
+hierarchical reports.
+
+Exercise 6
+
+Implement the ability to export generated reports to a file (e.g., CSV
+or JSON) while considering OOP design for file handling.
+
