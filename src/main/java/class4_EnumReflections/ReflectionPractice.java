@@ -6,6 +6,48 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class ReflectionPractice {
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setName("Lena");
+        for (Field field : person.getClass().getDeclaredFields()) {
+            System.out.println(field.getName());
+            System.out.println(field.getType());
+        }
+
+        for (Method method : person.getClass().getDeclaredMethods()) {
+            System.out.println(method.getName());
+        }
+
+        String name = null;
+        try {
+            name = (String) person.getClass().getMethod("getName").invoke(person);
+        } catch (IllegalAccessException | InvocationTargetException
+                 | NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println(name);
+
+        System.out.println(person.getClass());
+
+        //Exc 2
+        try {
+            Class<?> carClass = Class.forName("Car");
+            Constructor<?> constructor = carClass.getConstructor();
+            Car instance = (Car) constructor.newInstance();
+            Method methodSet = instance.getClass().getMethod("setYear", int.class);
+            methodSet.invoke(instance, 1900);
+
+            Method methodGet = instance.getClass().getMethod("getYear");
+            int year = (int) methodGet.invoke(instance);
+            System.out.println(year);
+
+        } catch (ClassNotFoundException | InvocationTargetException
+                 | NoSuchMethodException | InstantiationException |
+                 IllegalAccessException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     static class Person {
         private String name;
         private String city;
@@ -18,29 +60,6 @@ public class ReflectionPractice {
         public void setName(String name) {
             this.name = name;
         }
-    }
-
-    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-        Person person = new Person();
-        person.setName("Lena");
-        for (Field field : person.getClass().getDeclaredFields()) {
-            System.out.println(field.getName());
-            System.out.println(field.getType());
-        }
-
-        for (Method method : person.getClass().getDeclaredMethods()) {
-            System.out.println(method.getName());
-        }
-
-        String name = (String) person.getClass().getMethod("getName").invoke(person);
-        System.out.println(name);
-
-        System.out.println(person.getClass());
-
-        //Exc 2
-
-        Class<?> carClass = Car.class;
-
     }
 
     static class Car {
@@ -72,10 +91,4 @@ public class ReflectionPractice {
             this.year = year;
         }
     }
-    //TODO:
-    //Write a Java program that uses reflection to dynamically create an instance of the Car class, set its field values, and invoke its methods.
-    //Get the Constructor object for the Car class and create an instance of Car using reflection.
-    //Set the values of the private fields make, model, and year using reflection.
-    //Invoke the public methods to get the values of these fields and print them.
-    //Ensure you handle exceptions properly when working with reflection
 }
