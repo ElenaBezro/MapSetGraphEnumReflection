@@ -12,6 +12,29 @@ public class EnumPracticeMorning {
 
         //Exc 3
         System.out.println(Month.JUNE.getDays());
+
+        //Exc 4
+        int currentX = 0;
+        int currentY = 0;
+
+        for (Direction direction: Direction.values()) {
+            switch (direction) {
+                case NORTH -> currentY += direction.getDeltaY();
+                case SOUTH -> currentY -= direction.getDeltaY();
+                case EAST -> currentX += direction.getDeltaX();
+                case WEST -> currentX -= direction.getDeltaX();
+            }
+        }
+        System.out.println("Current position: x = " + currentX + "; y = " + currentY);
+
+        //Exc 5
+        TrafficLight trafficLight = TrafficLight.GREEN;
+        for (int i = 0; i < 10; i++) {
+            System.out.println(trafficLight);
+            trafficLight = trafficLight.getNext();
+        }
+
+
     }
 
     static class Day {
@@ -52,22 +75,4 @@ public class EnumPracticeMorning {
             return dayOfTheWeek;
         }
     }
-
-
-
-
-//TODO:
-
-    //4.Directional Constants:
-    //Create an enum named Direction to represent cardinal directions (NORTH, SOUTH, EAST, WEST).
-    //Define constants for each direction within the enum.
-    //Implement a constructor in the enum that takes two integers, deltaX and deltaY, representing changes in x and y coordinates when moving in that direction.
-    //Implement methods in the enum to calculate new x and y coordinates based on the current position and direction.
-    //Demonstrate the usage of the Direction enum by simulating movement in different directions from a given starting position.
-    //
-    //5.Traffic Lights:
-    //Create an enum named TrafficLight to represent the three colors of a traffic light (RED, YELLOW, GREEN).
-    //Define constants for each color within the enum.
-    //Implement a method called getNextColor that calculates and returns the next color in the traffic light sequence.
-    //Demonstrate the usage of the TrafficLight enum by simulating a traffic light sequence, starting from a given color, and printing the sequence.
 }
