@@ -1,5 +1,7 @@
 Morning session
 
+Enum
+
 1.Days of the Week:
 Create an enum named DayOfWeek to represent the days of the week.
 Define constants for each day (e.g., SUNDAY, MONDAY, TUESDAY, etc.) within the enum.
@@ -31,3 +33,24 @@ Create an enum named TrafficLight to represent the three colors of a traffic lig
 Define constants for each color within the enum.
 Implement a method called getNextColor that calculates and returns the next color in the traffic light sequence.
 Demonstrate the usage of the TrafficLight enum by simulating a traffic light sequence, starting from a given color, and printing the sequence.
+
+Reflection
+
+1.Inspecting Class Information:
+Create a Java class named Person with private fields for name, age, and city, and a public method to get the name.
+Write a Java program that uses reflection to inspect the Person class information dynamically.
+Implement the following tasks using reflection:
+Get and print the class name of the Person class.
+Retrieve and print the names and types of all fields in the Person class.
+Retrieve and print the names of all methods in the Person class.
+Invoke the public method to get the name of an instance of the Person class.
+Ensure you handle exceptions properly when working with reflection
+
+2.Dynamic Object Creation:
+Define a Java class named Car with private fields for make, model, and year, and public methods to access these fields.
+Write a Java program that uses reflection to dynamically create an instance of the Car class, set its field values, and invoke its methods.
+Implement the following tasks using reflection:
+Get the Constructor object for the Car class and create an instance of Car using reflection.
+Set the values of the private fields make, model, and year using reflection.
+Invoke the public methods to get the values of these fields and print them.
+Ensure you handle exceptions properly when working with reflection
